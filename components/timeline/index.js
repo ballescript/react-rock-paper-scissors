@@ -7,7 +7,7 @@ const Timeline = ({message, timeline}) => {
                 {message}
             </div>
             <div>
-                <span>{timeline.map(x=><div>{x}</div>)}</span>
+                <span>{timeline.map(x=><div>{x}</div>).reverse()}</span>
             </div>
         </div>
     )
