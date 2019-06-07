@@ -70,12 +70,6 @@ class App extends Component {
     }))
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if (this.state.draws !== nextState.draws) return true;
-    if (this.state.losses !== nextState.losses) return true;
-    if (this.state.wins !== nextState.wins) return true;
-  }  
-
   render() {
     return (
       <div className="app">
