@@ -1,16 +1,18 @@
 import React from 'react';
 
-const Timeline = ({message, timeline}) => {
-    return (
-        <div>
-            <div>
-                {message}
+const Timeline = ({timelineResult, currentGameResult}) => {
+    const imagePath = "../assets/images/";
+
+    if (currentGameResult !== null) {
+        return (
+            <div className="timeline">
+                <span>{timelineResult.map(x=><li><img src={`${imagePath}${x}`+".png"} alt={x}/></li>).reverse()}</span>
             </div>
-            <div>
-                <span>{timeline.map(x=><div>{x}</div>).reverse()}</span>
-            </div>
-        </div>
-    )
+        )
+    }
+    
+    return <div></div>
+
 };
 
 export default Timeline;

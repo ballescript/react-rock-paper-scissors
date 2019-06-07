@@ -31,6 +31,9 @@ const initialState = {
   currentGameResult: null,
   message: "",
   timeline: [],
+  timelineResult: [],
+  choiceResult: "",
+  choice: "",
 }
 
 class App extends Component {
@@ -60,7 +63,10 @@ class App extends Component {
 
     this.setState(prevState => ({
       currentGameResult: result,
-      timeline: [...prevState.timeline, choice]
+      timeline: [...prevState.timeline, choice],
+      choice: choice,
+      choiceResult: choice + this.state.currentGameResult,
+      timelineResult: [...prevState.timelineResult, this.state.choiceResult],
     }))
   }
 
@@ -77,7 +83,10 @@ class App extends Component {
         <Title />
         <Options onClickChoose={this.onClickChoose}/>
         <Results wins={this.state.wins} losses={this.state.losses} />
-        <Timeline message={this.state.message} timeline={this.state.timeline}/>
+        <div>
+                {this.state.message}
+        </div>
+        <Timeline timelineResult={this.state.timelineResult} currentGameResult={this.state.currentGameResult}/>
         </div>
       </div>
     )
